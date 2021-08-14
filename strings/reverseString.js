@@ -12,18 +12,19 @@ function reverse(str) {
 }
 
 // solution 2
-// function reverse(str) {
-//     let reversed = "";
-//     for (let character of str) {
-//         reversed = character + reversed;
-//         debugger;
-//     }
-//     return reversed;
-// }
+// Time complexity: O(n)
+// Space complexity: O(1)
+function reverse(str) {
+    let reversed = "";
+    for (let character of str) {
+        reversed = character + reversed;
+    }
+    return reversed;
+}
 
 // solution 3
-// function reverse(str) {
-//     return str.split("").reduce((rev, char) => char + rev, "");
-// }
+function reverse(str) {
+    return str.split("").reduce((rev, char) => char + rev, "");
+}
 
 console.log(reverse("pingpong"));

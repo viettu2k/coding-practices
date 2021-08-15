@@ -44,18 +44,18 @@ function findDuplicate(arr) {
 // Time complexity: O(n)
 // Space complexity: O(1)
 function findDuplicate(arr) {
-    let hare = 0,
-        tortoise = 0;
+    let slow = 0,
+        fast = 0;
     do {
-        tortoise = arr[tortoise];
-        hare = arr[arr[hare]];
-    } while (tortoise != hare);
-    tortoise = 0;
-    while (tortoise != hare) {
-        tortoise = arr[tortoise];
-        hare = arr[hare];
+        fast = arr[fast];
+        slow = arr[arr[slow]];
+    } while (fast != slow);
+    fast = 0;
+    while (fast != slow) {
+        fast = arr[fast];
+        slow = arr[slow];
     }
-    return tortoise;
+    return fast;
 }
 
 console.log(findDuplicate([4, 2, 1, 3, 5, 6, 3]));

@@ -131,6 +131,11 @@ class LinkedList {
             return;
         }
 
+        if (index >= this.size()) {
+            this.insertLast(data);
+            return;
+        }
+
         const previous = this.getAt(index - 1) || this.getLast();
         const node = new Node(data, previous.next);
         previous.next = node;

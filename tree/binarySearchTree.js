@@ -43,6 +43,27 @@ class Node {
 
         return null;
     }
+
+    dfsPreorder(root) {
+        if (root == null) return;
+        console.log(root.data);
+        dfsPreorder(root.left);
+        dfsPreorder(root.right);
+    }
+
+    dfsInorder(root) {
+        if (root == null) return;
+        dfsInorder(root.left);
+        console.log(root.data);
+        dfsInorder(root.right);
+    }
+
+    dfsPostorder(root) {
+        if (root == null) return;
+        dfsPostorder(root.left);
+        dfsPostorder(root.right);
+        console.log(root.data);
+    }
 }
 
 module.exports = Node;

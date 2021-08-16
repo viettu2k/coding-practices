@@ -141,6 +141,21 @@ class LinkedList {
         previous.next = node;
     }
 
+    reverse() {
+        if (!this.head.next) {
+            return this.head;
+        }
+
+        let first = this.head;
+        let second = first.next;
+        while (second) {
+            const temp = second.next;
+            second.next = first;
+            first = second;
+            second = temp;
+        }
+    }
+
     forEach(fn) {
         let node = this.head;
         let counter = 0;

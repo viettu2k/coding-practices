@@ -30,7 +30,7 @@ class Queue {
     }
 
     dequeue() {
-        if (!this.fisrt) {
+        if (!this.first) {
             return null;
         }
 
@@ -38,10 +38,10 @@ class Queue {
             this.last = null;
         }
 
-        const hodlingPointer = this.first;
+        const holdingPointer = this.first;
         this.first = this.first.next;
         this.length--;
-        return hodlingPointer;
+        return holdingPointer;
     }
 
     isEmpty() {

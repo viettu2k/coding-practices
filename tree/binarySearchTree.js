@@ -12,10 +12,10 @@
 // and return the Node in the tree with the same value.
 
 class Node {
-    constructor(data) {
+    constructor(data, left = null, right = null) {
         this.data = data;
-        this.left = null;
-        this.right = null;
+        this.left = left;
+        this.right = right;
     }
 
     insert(data) {
@@ -63,6 +63,28 @@ class Node {
         dfsPostorder(root.left);
         dfsPostorder(root.right);
         console.log(root.data);
+    }
+
+    getValuesByLevel(root) {
+        let output = [];
+        let queue = [
+            [root, 0]
+        ];
+        let i = 0;
+        while (i < queue.length) {
+            let node = queue[i][0];
+            let level = queue[i][1];
+            i++;
+            if (node === null) {
+                continue;
+            } else {
+                if (output.length <= level) output.push([]);
+                output[level].push(node.data);
+                queue.push([node.left, level + 1]);
+                queue.push([node.right, level + 1]);
+            }
+        }
+        return output;
     }
 }
 
